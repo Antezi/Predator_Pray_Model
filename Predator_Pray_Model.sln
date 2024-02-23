@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Predator_Pray_Model", "Predator_Pray_Model.csproj", "{FD77FB1A-E847-4DC5-BD24-616E070FDEAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD77FB1A-E847-4DC5-BD24-616E070FDEAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD77FB1A-E847-4DC5-BD24-616E070FDEAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD77FB1A-E847-4DC5-BD24-616E070FDEAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD77FB1A-E847-4DC5-BD24-616E070FDEAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
