@@ -3,6 +3,7 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="App.axaml" value="Predator_Pray_Model.csproj" />
         <entry key="MainWindow.axaml" value="Predator_Pray_Model.csproj" />
       </map>
     </option>

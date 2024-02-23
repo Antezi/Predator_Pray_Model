@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iiSNiLhoyP8yu+HM9IneDzm+yOQBRU5kqBmQc+t6V0j6UCA59gNNAuevtw1HLaQXiZ4+29pyO1kB4KH7b1Fg/g==",
+  "dgSpecHash": "XnqDr78xt2MyGmfVp3Kspom/2i3CCuNwfiPN739f7OeSP8psnEKD1z82M1jnNYhUOxCuaLYyCs0wDs3vs1O3mw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Anton\\RiderProjects\\Predator_Pray_Model\\Predator_Pray_Model.csproj",
   "expectedPackageFiles": [
@@ -31,6 +31,8 @@
     "C:\\Users\\Anton\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
     "C:\\Users\\Anton\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Anton\\.nuget\\packages\\microsoft.win32.systemevents\\4.5.0\\microsoft.win32.systemevents.4.5.0.nupkg.sha512",
+    "C:\\Users\\Anton\\.nuget\\packages\\oxyplot.avalonia\\2.1.0\\oxyplot.avalonia.2.1.0.nupkg.sha512",
+    "C:\\Users\\Anton\\.nuget\\packages\\oxyplot.core\\2.1.2\\oxyplot.core.2.1.2.nupkg.sha512",
     "C:\\Users\\Anton\\.nuget\\packages\\skiasharp\\2.88.1-preview.108\\skiasharp.2.88.1-preview.108.nupkg.sha512",
     "C:\\Users\\Anton\\.nuget\\packages\\skiasharp.nativeassets.linux\\2.88.1-preview.108\\skiasharp.nativeassets.linux.2.88.1-preview.108.nupkg.sha512",
     "C:\\Users\\Anton\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.1-preview.108\\skiasharp.nativeassets.macos.2.88.1-preview.108.nupkg.sha512",

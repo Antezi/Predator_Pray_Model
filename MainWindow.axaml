@@ -2,8 +2,48 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:oxy="clr-namespace:OxyPlot.Avalonia;assembly=OxyPlot.Avalonia"
+        xmlns:styles="clr-namespace:Avalonia.Styling; assembly=Avalonia.Styling"
+        mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="450"
         x:Class="Predator_Pray_Model.MainWindow"
-        Title="Predator_Pray_Model">
-    Welcome to Avalonia!
+        Title="Predator_Pray_Model"
+        Icon="Assets/Predator.ico">
+        <Grid>
+                <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                
+            
+            <Border Grid.Row="1" Grid.Column="0" Background="Aquamarine" Margin="20, 10, 10, 10" CornerRadius="20"> 
+                    <StackPanel>
+                            <TextBox Margin="10,15,10,10" Width="150" Height="30" CornerRadius="15" Watermark="ε,ед\год" HorizontalContentAlignment="Center"
+                                     VerticalContentAlignment="Center" FontFamily="Comic Sans MS" Name="PrayBirth"/> 
+                            <TextBox Margin="10" Width="150" Height="30" CornerRadius="15" Watermark="β,ед\год" HorizontalContentAlignment="Center"
+                                     VerticalContentAlignment="Center" FontFamily="Comic Sans MS" Name="PredatorDeath"/> 
+                            <TextBox Margin="10" Width="150" Height="30" CornerRadius="15" Watermark="α" HorizontalContentAlignment="Center"
+                                     VerticalContentAlignment="Center" FontFamily="Comic Sans MS" Name="KillingBox"/> 
+                            <TextBox Margin="10" Width="150" Height="30" CornerRadius="15" Watermark="δ" HorizontalContentAlignment="Center"
+                                     VerticalContentAlignment="Center" FontFamily="Comic Sans MS" Name="DeathPrayBox"/> 
+                            <Button Margin="10" Width="150" Height="30" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                    CornerRadius="15" Background="SeaGreen" Foreground="White" Content="Сгенерировать" FontFamily="Comic Sans MS"
+                                    FontWeight="Bold" Name="GenerateButton" Click="GenerateButton_OnClick"/>
+                    </StackPanel>
+            </Border>
+            
+            <Border Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" Background="Aquamarine" Margin="10, 10, 20, 20" CornerRadius="20">
+                <DockPanel>
+                    <oxy:PlotView x:Name="MainPlot" Width="400" Height="300" DockPanel.Dock="Left"/>
+                    <oxy:PlotView x:Name="PhasePlot" Width="400" Height="300" DockPanel.Dock="Right"/>
+                </DockPanel>
+            </Border>
+                
+        </Grid>
 </Window>

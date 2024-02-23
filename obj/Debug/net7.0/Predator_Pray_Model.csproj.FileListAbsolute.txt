@@ -127,3 +127,5 @@ C:\Users\Anton\RiderProjects\Predator_Pray_Model\obj\Debug\net7.0\refint\Predato
 C:\Users\Anton\RiderProjects\Predator_Pray_Model\obj\Debug\net7.0\Predator_Pray_Model.pdb
 C:\Users\Anton\RiderProjects\Predator_Pray_Model\obj\Debug\net7.0\Predator_Pray_Model.genruntimeconfig.cache
 C:\Users\Anton\RiderProjects\Predator_Pray_Model\obj\Debug\net7.0\ref\Predator_Pray_Model.dll
+C:\Users\Anton\RiderProjects\Predator_Pray_Model\bin\Debug\net7.0\OxyPlot.Avalonia.dll
+C:\Users\Anton\RiderProjects\Predator_Pray_Model\bin\Debug\net7.0\OxyPlot.dll
