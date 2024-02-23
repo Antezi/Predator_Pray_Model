@@ -12,10 +12,12 @@ public partial class MainWindow : Window
 {
     private TextBox _prayBirth, _predatorDeath, _killingBox, _deathPrayBox;
     private double e, B, a, d, prayCount, predatorCount;
+    private int iter = 0;
     private int gen = 0;
     private List<double> prayCountList = new List<double>();
     private List<double> predatorCountList = new List<double>();
     private double startPrayCount = 500, startPredatorCount = 75;
+    private double lastPray, lastPredator;
     private PlotModel mainPlotModel, phasePlotModel;
     private PlotView _plotModel, _phaseModel;
 
@@ -57,34 +59,58 @@ public partial class MainWindow : Window
         }
 
         // Количество жертв
-        for (int i = 0; i < 150; i++)
+        for (int j = 0; j < 3; j++)
         {
-            if (gen == 0)
+            for (int i = 0; i < 150; i++)
             {
-                prayCount = (this.e - a * startPredatorCount) * startPrayCount + startPrayCount;
-                gen++;
-                prayCountList.Add(prayCount);
-            }
-            else
-            {
-                prayCount = (this.e - a * predatorCount) * prayCount + prayCount;
-                gen++;
-                prayCountList.Add(prayCount);
-            }
-            
-            if (gen == 1)
-            {
-                predatorCount = (d * prayCountList[i] - B) * startPredatorCount + startPredatorCount;
-                predatorCountList.Add(predatorCount);
-            }
+                if (gen > 0 && i == 0)
+                {
+                    prayCount = (this.e - a * lastPredator) * lastPray + lastPray;
+                    iter++;
+                    prayCountList.Add(prayCount);
+                }
+                else if (iter == 0)
+                {
+                    prayCount = (this.e - a * startPredatorCount) * startPrayCount + startPrayCount;
+                    iter++;
+                    prayCountList.Add(prayCount);
+                }
+                else
+                {
+                    prayCount = (this.e - a * predatorCount) * prayCount + prayCount;
+                    iter++;
+                    prayCountList.Add(prayCount);
+                }
 
-            else
-            {
-                predatorCount = (d * prayCountList[i] - B) * predatorCount + predatorCount;
-                predatorCountList.Add(predatorCount);
+                if (gen > 0 && i == 0)
+                {
+                    predatorCount = (d * prayCountList[i] - B) * lastPredator + lastPredator;
+                    predatorCountList.Add(predatorCount);
+                }
+                else if (iter == 1)
+                {
+                    predatorCount = (d * prayCountList[i] - B) * startPredatorCount + startPredatorCount;
+                    predatorCountList.Add(predatorCount);
+                }
+
+                else
+                {
+                    predatorCount = (d * prayCountList[i] - B) * predatorCount + predatorCount;
+                    predatorCountList.Add(predatorCount);
+                }
+
+                if (i == 149)
+                {
+                    lastPray = prayCountList[i];
+                    lastPredator = predatorCountList[i];
+                    gen++;
+                }
             }
+            UpdatePlotData();
+            prayCountList = new List<double>();
+            predatorCountList = new List<double>();
         }
-        UpdatePlotData();
+        
     }
     
     private void UpdatePlotData()
