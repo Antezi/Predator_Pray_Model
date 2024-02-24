@@ -47,6 +47,12 @@ public partial class MainWindow : Window
 
     private void GenerateButton_OnClick(object? sender, RoutedEventArgs e)
     {
+        mainPlotModel = CreateMainPlotModel();
+        phasePlotModel = CreatePhasePlotModel();
+        MainPlot.Model = mainPlotModel;
+        PhasePlot.Model = phasePlotModel;
+        gen = 0;
+        
         try
         {
             this.e = Convert.ToDouble(_prayBirth.Text);
@@ -58,8 +64,6 @@ public partial class MainWindow : Window
         {
             return;
         }
-
-        
         var predatorsSeries = new LineSeries { Title = "Predators" };
         var preysSeries = new LineSeries { Title = "Preys" };
         var phaseSeries = new LineSeries { Title = "Predators vs Preys" };
@@ -96,9 +100,14 @@ public partial class MainWindow : Window
                     prayCounts[j, i] = prayCount;
                 }
 
-                if (j > 0 && i == 0)
+                if (j == 1 && i == 0)
                 {
-                    predatorCount = (d * prayCounts[j, i] - B) * startPredatorCount + startPredatorCount;
+                    predatorCount = (d * startPrayCount - B) * 150 + 150;
+                    predatorCounts[j, i] = predatorCount;
+                }
+                else if (j == 2 && i == 0)
+                {
+                    predatorCount = (d * startPrayCount - B) * 100 + 100;
                     predatorCounts[j, i] = predatorCount;
                 }
                 else if (iter == 1)
@@ -114,47 +123,59 @@ public partial class MainWindow : Window
                 } 
             
             }
+            UpdatePlotData();
         }
 
-        UpdatePlotData();
+        UpdateMainPlotModel();
     }
     
     private void UpdatePlotData()
     {
-        var predatorsSeries = new LineSeries { Title = "Predators" };
-        var preysSeries = new LineSeries { Title = "Preys" };
         var phaseSeries = new LineSeries { Title = "Predators vs Preys" };
+        
+        for (int i = 0; i < 150; i++)
+        {
+            phaseSeries.Points.Add(new DataPoint(predatorCounts[gen, i], prayCounts[gen, i]));
+        }
+        gen++;
+        
+        phasePlotModel.Series.Add(phaseSeries);
+        
+        _phaseModel.InvalidatePlot();
+    }
 
-        int gen = 0;
+    private void UpdateMainPlotModel()
+    {
+        var predatorsSeries = new LineSeries { Title = "Охотники" };
+        var preysSeries = new LineSeries { Title = "Жертвы" };
+
+        int iter = 0;
         for (int j = 0; j < 3; j++)
         {
             for (int i = 0; i < 150; i++)
             {
-                predatorsSeries.Points.Add(new DataPoint(gen, predatorCounts[j, i]));
-                preysSeries.Points.Add(new DataPoint(gen, prayCounts[j, i]));
-                phaseSeries.Points.Add(new DataPoint(predatorCounts[j, i], prayCounts[j, i]));
-                gen++;
+                predatorsSeries.Points.Add(new DataPoint(iter, predatorCounts[j, i]));
+                preysSeries.Points.Add(new DataPoint(iter, prayCounts[j, i]));
+                iter++;
             }
         }
-
+        
         mainPlotModel.Series.Add(predatorsSeries);
         mainPlotModel.Series.Add(preysSeries);
-        phasePlotModel.Series.Add(phaseSeries);
-
+        
         _plotModel.InvalidatePlot();
-        _phaseModel.InvalidatePlot();
     }
     
     private PlotModel CreateMainPlotModel()
     {
-        var plotModel = new PlotModel { Title = "Population Dynamics" };
+        var plotModel = new PlotModel { Title = "Динамика популяции" };
         // Убираем добавление серий в модель графика
         return plotModel;
     }
 
     private PlotModel CreatePhasePlotModel()
     {
-        var plotModel = new PlotModel { Title = "Phase Portrait" };
+        var plotModel = new PlotModel { Title = "Фазовый портрет" };
         // Убираем добавление серий в модель графика
         return plotModel;
     }

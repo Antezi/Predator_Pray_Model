@@ -40,8 +40,8 @@
             
             <Border Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" Background="Aquamarine" Margin="10, 10, 20, 20" CornerRadius="20">
                 <DockPanel>
-                    <oxy:PlotView x:Name="MainPlot" Width="350" Height="300"  Margin="20"/>
-                    <oxy:PlotView x:Name="PhasePlot" Width="350" Height="300" DockPanel.Dock="Right"/>
+                    <oxy:PlotView x:Name="MainPlot" Width="350" Height="300"  Margin="20" CornerRadius="20" FontSize="16" FontFamily="Comic Sans MS"/>
+                    <oxy:PlotView x:Name="PhasePlot" Width="350" Height="300" DockPanel.Dock="Right" CornerRadius="20" FontSize="16" FontFamily="Comic Sans MS"/>
                 </DockPanel>
             </Border>
                 
