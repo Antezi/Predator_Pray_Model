@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using OxyPlot;
@@ -55,10 +56,15 @@ public partial class MainWindow : Window
         
         try
         {
-            this.e = Convert.ToDouble(_prayBirth.Text);
-            B = Convert.ToDouble(_predatorDeath.Text);
-            a = Convert.ToDouble(_killingBox.Text);
-            d = Convert.ToDouble(_deathPrayBox.Text);
+           this.e =  double.Parse(_prayBirth.Text, CultureInfo.InvariantCulture);
+           B = double.Parse(_predatorDeath.Text, CultureInfo.InvariantCulture);
+           a = double.Parse(_killingBox.Text, CultureInfo.InvariantCulture);
+           d = double.Parse(_deathPrayBox.Text, CultureInfo.InvariantCulture);
+           
+            //this.e = Convert.ToDouble(_prayBirth.Text);
+            //B = Convert.ToDouble(_predatorDeath.Text);
+            //a = Convert.ToDouble(_killingBox.Text);
+            //d = Convert.ToDouble(_deathPrayBox.Text);
         }
         catch
         {
