@@ -18,7 +18,7 @@ public partial class MainWindow : Window
     private List<double> prayCountList = new List<double>();
     private List<double> predatorCountList = new List<double>(); 
     private double[,] prayCounts, predatorCounts;
-    private double startPrayCount = 500, startPredatorCount = 75;
+    private double startPrayCount = 700, startPredatorCount = 200;
     private double lastPray, lastPredator;
     private PlotModel mainPlotModel, phasePlotModel;
     private PlotView _plotModel, _phaseModel;
@@ -56,15 +56,15 @@ public partial class MainWindow : Window
         
         try
         {
-           this.e =  double.Parse(_prayBirth.Text, CultureInfo.InvariantCulture);
-           B = double.Parse(_predatorDeath.Text, CultureInfo.InvariantCulture);
-           a = double.Parse(_killingBox.Text, CultureInfo.InvariantCulture);
-           d = double.Parse(_deathPrayBox.Text, CultureInfo.InvariantCulture);
+           //this.e =  double.Parse(_prayBirth.Text, CultureInfo.InvariantCulture);
+           //B = double.Parse(_predatorDeath.Text, CultureInfo.InvariantCulture);
+           //a = double.Parse(_killingBox.Text, CultureInfo.InvariantCulture);
+           //d = double.Parse(_deathPrayBox.Text, CultureInfo.InvariantCulture);
            
-            //this.e = Convert.ToDouble(_prayBirth.Text);
-            //B = Convert.ToDouble(_predatorDeath.Text);
-            //a = Convert.ToDouble(_killingBox.Text);
-            //d = Convert.ToDouble(_deathPrayBox.Text);
+            this.e = Convert.ToDouble(_prayBirth.Text);
+            B = Convert.ToDouble(_predatorDeath.Text);
+            a = Convert.ToDouble(_killingBox.Text);
+            d = Convert.ToDouble(_deathPrayBox.Text);
         }
         catch
         {
@@ -137,7 +137,7 @@ public partial class MainWindow : Window
     
     private void UpdatePlotData()
     {
-        var phaseSeries = new LineSeries { Title = "Predators vs Preys" };
+        var phaseSeries = new LineSeries { Title = "Охотники и Жертвы" };
         
         for (int i = 0; i < 150; i++)
         {
